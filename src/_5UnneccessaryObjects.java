@@ -111,7 +111,16 @@ Changing the declaration of sum from Long to long reduces the runtime from 43
 seconds to 6.8 seconds on my machine. The lesson is clear: prefer primitives to
 boxed primitives, and watch out for unintentional autoboxing.
 
-
+This item should not be misconstrued to imply that object creation is expensive
+and should be avoided. On the contrary, the creation and reclamation of small
+objects whose constructors do little explicit work is cheap, especially on modern
+JVM implementations. Creating additional objects to enhance the clarity, simplicity,
+or power of a program is generally a good thing.
+Conversely, avoiding object creation by maintaining your own object pool is a
+bad idea unless the objects in the pool are extremely heavyweight. The classic
+example of an object that does justify an object pool is a database connection. The
+cost of establishing the connection is sufficiently high that it makes sense to reuse
+these objects. Also, your database license may limit you to a fixed number of connections.
 
 
 
