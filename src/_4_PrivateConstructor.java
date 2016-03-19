@@ -1,7 +1,7 @@
 /**
  * Created by Adrian on 17.03.2016.
  */
-public class _4PrivateConstructor {
+public class _4_PrivateConstructor {
 
 }
 /*

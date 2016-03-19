@@ -1,7 +1,7 @@
 /**
  * Created by Adrian on 18.03.2016.
  */
-public class _5UnneccessaryObjects {
+public class _5_UnneccessaryObjects {
 }
 
 /*
