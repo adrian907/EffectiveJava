@@ -80,6 +80,84 @@ elements of the class may not obey the general contract of the appropriate colle
 interfaces (Collection, Set, or Map).
 
 
+For example, consider the BigDecimal class, whose compareTo method is
+inconsistent with equals. If you create a HashSet instance and add new
+BigDecimal("1.0") and new BigDecimal("1.00"), the set will contain two
+elements because the two BigDecimal instances added to the set are unequal
+when compared using the equals method. If, however, you perform the same
+procedure using a TreeSet instead of a HashSet, the set will contain only one
+element because the two BigDecimal instances are equal when compared using
+the compareTo method. (See the BigDecimal documentation for details.)
+
+
+Because the Comparable interface is parameterized,
+the compareTo method is statically typed, so you don’t need to type check or
+cast its argument.
+
+
+The field comparisons in a compareTo method are order comparisons rather
+than equality comparisons. Compare object reference fields by invoking the
+compareTo method recursively. If a field does not implement Comparable, or you
+need to use a nonstandard ordering, you can use an explicit Comparator instead.
+Either write your own, or use a preexisting one as in this compareTo method for
+the CaseInsensitiveString class in Item 8.
+public final class CaseInsensitiveString
+implements Comparable<CaseInsensitiveString> {
+public int compareTo(CaseInsensitiveString cis) {
+return String.CASE_INSENSITIVE_ORDER.compare(s, cis.s);
+}
+... // Remainder omitted
+}
+
+
+Compare integral primitive fields using the relational operators < and >. For
+floating-point fields, use Double.compare or Float.compare in place of the
+relational operators, which do not obey the general contract for compareTo when
+applied to floating point values. For array fields, apply these guidelines to each
+element.
+
+
+If a class has multiple significant fields, the order in which you compare them
+is critical. You must start with the most significant field and work your way down.
+
+
+public int compareTo(PhoneNumber pn) {
+// Compare area codes
+int areaCodeDiff = areaCode - pn.areaCode;
+if (areaCodeDiff != 0)
+return areaCodeDiff;
+// Area codes are equal, compare prefixes
+int prefixDiff = prefix - pn.prefix;
+if (prefixDiff != 0)
+return prefixDiff;
+// Area codes and prefixes are equal, compare line numbers
+return lineNumber - pn.lineNumber;
+}
+
+
+This trick works fine here but should be used with extreme caution. Don’t use
+it unless you’re certain the fields in question are non-negative or, more generally,
+that the difference between the lowest and highest possible field values is less than
+or equal to Integer.MAX_VALUE (231-1).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
