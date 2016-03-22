@@ -2,6 +2,7 @@
  * Created by Adrian on 21.03.2016.
  */
 public class _19_Interfaces_only_to_define_types {
+
 }
 /*
 
