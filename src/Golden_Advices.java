@@ -50,12 +50,15 @@ Avoid confusing uses of overloading.
 Don't create overloading methods with the same amount of parameters.
 
 
+#42
+Even though you can replace final parameter of a method which is array with varargs doesn't mean you should.
+
+#43
+If needed, always return empty array or collection, not NULL value.
 
 
-
-
-
-
+#44
+Making documentation comments is the best way to document your API. Restrict conventions .
 
 
 
