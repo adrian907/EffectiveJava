@@ -28,6 +28,41 @@ Use @Override annotation to prevent hard to find bugs on EVERY method you try to
 #37
 Marker interfaces should be used for marking interfaces and classes, marker annotations for every other situation.
 
+#38
+Check methods parameters ASAP if any restrictions occur(but be wise,generalise), you can prevent from hard to find bugs.
+
+#39
+
+Be aware of TOC/TOU attack (window vulnerability).
+Don't use clone for making defensive copies.
+
+#40
+Don't create methods with too many parameters.
+
+#41
+The correct version of an overridden method is chosen at runtime,
+based on the runtime type of the object on which the method is invoked.
+
+The choice of which overloading to invoke is made at compile time.
+
+Avoid confusing uses of overloading.
+
+Don't create overloading methods with the same amount of parameters.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
