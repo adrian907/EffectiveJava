@@ -60,12 +60,24 @@ If needed, always return empty array or collection, not NULL value.
 #44
 Making documentation comments is the best way to document your API. Restrict conventions .
 
+#45
+Use for loops instead of while to minimize variables scope.
 
+#46
+Use for-each loops instead of traditional, because they provide clarity, prevent from bugs and
+don't influence on performance.
 
+#47
+Be familiar with standard Java API, mainly what you want already has been made.
 
+#48
+Avoid float and double types in accurate calculations, use BigDecimal instead.
 
+#49
+Use primitives rather than boxed primitives, they enhance performance and reduce bug possibility.
 
-
+#50
+Avoid strings if more appropriate data storing type exists, or can be easily created. 
 
 
 
