@@ -116,12 +116,18 @@ If you can't prevent from lower layer exceptions, use Exception Translation, or 
 #62
 Document checked as well as unchecked exceptions.
 
+#63
+Failure-capture messages should be concise and include parameter info .
 
+#64
+Failed method invocation should leave the object in the state that it was in prior to the invocation.
+(atomic method)
 
+#65
+Never ignore exceptions, it leads to future failure.
 
-
-
-
+#66
+Use synchronization, whenever two threads attempt to change state of some object.
 
 
 
